@@ -103,10 +103,10 @@ createCharts = async () => {
                     label: 'Emission Co2e',
                     data: emissionMode_data,
                     backgroundColor: [
-                        '#35BE6C',
+                        'rgba(53, 190, 108, 1)',
                     ],
                     borderColor: [
-                        '#35BE6C',
+                        'rgba(53, 190, 108, 1)',
                     ],
                     borderWidth: 2
                 }]
@@ -141,10 +141,10 @@ createCharts = async () => {
                     label: 'Shipment',
                     data: shipmentMode_data,
                     backgroundColor: [
-                        '#35BE6C',
+                        'rgba(53, 190, 108, 1)',
                     ],
                     borderColor: [
-                        '#35BE6C',
+                        'rgba(53, 190, 108, 1)',
                     ],
                     borderWidth: 2
                 }]
@@ -180,10 +180,10 @@ createCharts = async () => {
                 label: 'Carbon Emission',
                 data: carbon_data,
                 backgroundColor: [
-                    '#35BE6C',
+                    'rgba(53, 190, 108, 1)',
                 ],
                 borderColor: [
-                    '#35BE6C',
+                    'rgba(53, 190, 108, 1)',
                 ],
                 borderWidth: 2
             }]
@@ -214,10 +214,10 @@ createCharts = async () => {
                 label: 'Carbon Emission',
                 data: carbonIntensityMode_data,
                 backgroundColor: [
-                    '#35BE6C',
+                    'rgba(53, 190, 108, 1)',
                 ],
                 borderColor: [
-                    '#35BE6C',
+                    'rgba(53, 190, 108, 1)',
                 ],
                 borderWidth: 2
             }]
@@ -252,10 +252,10 @@ createCharts = async () => {
                 label: 'Average Weight',
                 data: avgWeightPerShipment_data,
                 backgroundColor: [
-                    '#35BE6C',
+                    'rgba(53, 190, 108, 1)',
                 ],
                 borderColor: [
-                    '#35BE6C',
+                    'rgba(53, 190, 108, 1)',
                 ],
                 borderWidth: 2
             }]
@@ -286,10 +286,10 @@ createCharts = async () => {
                     label: 'Average Distance',
                     data: avgDistancePerShipment_data,
                     backgroundColor: [
-                        '#35BE6C',
+                        'rgba(53, 190, 108, 1)',
                     ],
                     borderColor: [
-                        '#35BE6C',
+                        'rgba(53, 190, 108, 1)',
                     ],
                     borderWidth: 2
                 }]
@@ -321,15 +321,15 @@ createCharts = async () => {
                 datasets: [{
                     label: 'Shipment',
                     data: shipment_data,
-                    backgroundColor: '#35BE6C',
-                    borderColor: '#35BE6C',
+                    backgroundColor: 'rgba(53, 190, 108, 1)',
+                    borderColor: 'rgba(53, 190, 108, 1)',
                     borderWidth: 1,
                     type: 'bar' // Specify bar type here
                 }, {
                     label: 'Emission',
                     data: emission_data,
-                    backgroundColor: '#B2FE03',
-                    borderColor: '#B2FE03',
+                    backgroundColor: 'rgba(178, 254, 3, 1)',
+                    borderColor: 'rgba(178, 254, 3, 1)',
                     borderWidth: 1,
                     type: 'line', // Specify line type here
                     fill: false
@@ -368,14 +368,14 @@ createCharts = async () => {
                     data: shipmentPercentages.map(mode => mode.percentage),
                     backgroundColor: [
                         // Colors for each bar
-                        '#B2FE03',
-                        '#35BE6C'
+                        'rgba(178, 254, 3, 1)',
+                        'rgba(53, 190, 108, 1)'
                         // Add more colors if you have more transport modes
                     ],
                     borderColor: [
                         // Border colors for each bar
-                        '#B2FE03',
-                        '#35BE6C'
+                        'rgba(178, 254, 3, 1)',
+                        'rgba(53, 190, 108, 1)'
                         // Add more border colors if needed
                     ],
                     borderWidth: 1
@@ -405,16 +405,16 @@ avgShipmentLine = new Chart(avgShipmentLinectx, {
         datasets: [{
             label: 'Avg Weight per Shipment (t)',
             data: avgWeightPerShipment_data,
-            backgroundColor: '#B2FE03',
-            borderColor: '#B2FE03',
+            backgroundColor: 'rgba(178, 254, 3, 1)',
+            borderColor: 'rgba(178, 254, 3, 1)',
             borderWidth: 2,
             fill: false,
             yAxisID: 'y-weight' // Associate this dataset with the first y-axis
         }, {
             label: 'Avg Distance per Shipment (km)',
             data: avgDistancePerShipment_data,
-            backgroundColor: '#35BE6C',
-            borderColor: '#35BE6C',
+            backgroundColor: 'rgba(53, 190, 108, 1)',
+            borderColor: 'rgba(53, 190, 108, 1)',
             borderWidth: 2,
             fill: false,
             yAxisID: 'y-distance' // Associate this dataset with the second y-axis
