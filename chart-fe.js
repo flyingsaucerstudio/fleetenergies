@@ -1,4 +1,3 @@
-<script>
 window.onload = async () => {
     let emissionChartCo2, totalShipments, carbonIntensity, carbonIntensityMode, avgWeight, avgDistance, shipmentEmission, shipmentByMode, avgShipmentLine;
 
@@ -449,4 +448,3 @@ avgShipmentLine = new Chart(avgShipmentLinectx, {
 }
 
 }
-</script>
