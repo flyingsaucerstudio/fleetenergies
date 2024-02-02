@@ -49,13 +49,13 @@ window.onload = async () => {
     let totalShipments; 
     let carbonIntensity; 
     let carbonIntensityMode; 
-    let avgDistance
-    let avgWeight
+    let avgDistance;
+    let avgWeight;
     let shipmentEmission;
-    let shipmentByMode
-    let avgShipmentLine
-    let monthDataLoaded = false
-    let shipmentModeDataLoaded = false
+    let shipmentByMode;
+    let avgShipmentLine;
+    let monthDataLoaded = false;
+    let shipmentModeDataLoaded = false;
 
 Wized.data.listen("v.emissionMonthData", async () => {   
         monthDataLoaded = true;
@@ -103,10 +103,10 @@ createCharts = async () => {
                     label: 'Emission Co2e',
                     data: emissionMode_data,
                     backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)',
+                        '#35BE6C',
                     ],
                     borderColor: [
-                        'rgba(75, 192, 192, 1)',
+                        '#35BE6C',
                     ],
                     borderWidth: 2
                 }]
@@ -121,8 +121,8 @@ createCharts = async () => {
             }
         });
 
-        const shipmentMode_data = shipmentModeData.map(key=> key.shipmentsCount)
-        const shipment_data = monthData.map(key=> key.shipmentsCount)
+        const shipmentMode_data = shipmentModeData.map(key=> key.shipmentsCount);
+        const shipment_data = monthData.map(key=> key.shipmentsCount);
 
         // Destroy the existing chart if it exists
         if (totalShipments) {
@@ -141,10 +141,10 @@ createCharts = async () => {
                     label: 'Shipment',
                     data: shipmentMode_data,
                     backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)',
+                        '#35BE6C',
                     ],
                     borderColor: [
-                        'rgba(75, 192, 192, 1)',
+                        '#35BE6C',
                     ],
                     borderWidth: 2
                 }]
@@ -161,7 +161,7 @@ createCharts = async () => {
    
 
   
-    const carbon_data = monthData.map(key=> key.emissionIntensity_gCO2e_tkm)
+    const carbon_data = monthData.map(key=> key.emissionIntensity_gCO2e_tkm);
 
     // Destroy the existing chart if it exists
     if (carbonIntensity) {
@@ -180,10 +180,10 @@ createCharts = async () => {
                 label: 'Carbon Emission',
                 data: carbon_data,
                 backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
+                    '#35BE6C',
                 ],
                 borderColor: [
-                    'rgba(75, 192, 192, 1)',
+                    '#35BE6C',
                 ],
                 borderWidth: 2
             }]
@@ -195,7 +195,7 @@ createCharts = async () => {
     });
 
 
-    const carbonIntensityMode_data = shipmentModeData.map(key=> key.emissionIntensity_gCO2e_tkm)
+    const carbonIntensityMode_data = shipmentModeData.map(key=> key.emissionIntensity_gCO2e_tkm);
 
     // Destroy the existing chart if it exists
     if (carbonIntensityMode) {
@@ -214,10 +214,10 @@ createCharts = async () => {
                 label: 'Carbon Emission',
                 data: carbonIntensityMode_data,
                 backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
+                    '#35BE6C',
                 ],
                 borderColor: [
-                    'rgba(75, 192, 192, 1)',
+                    '#35BE6C',
                 ],
                 borderWidth: 2
             }]
@@ -252,10 +252,10 @@ createCharts = async () => {
                 label: 'Average Weight',
                 data: avgWeightPerShipment_data,
                 backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
+                    '#35BE6C',
                 ],
                 borderColor: [
-                    'rgba(75, 192, 192, 1)',
+                    '#35BE6C',
                 ],
                 borderWidth: 2
             }]
@@ -286,10 +286,10 @@ createCharts = async () => {
                     label: 'Average Distance',
                     data: avgDistancePerShipment_data,
                     backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)',
+                        '#35BE6C',
                     ],
                     borderColor: [
-                        'rgba(75, 192, 192, 1)',
+                        '#35BE6C',
                     ],
                     borderWidth: 2
                 }]
@@ -321,15 +321,15 @@ createCharts = async () => {
                 datasets: [{
                     label: 'Shipment',
                     data: shipment_data,
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Example color
-                    borderColor: 'rgba(54, 162, 235, 1)', // Example color
+                    backgroundColor: '#35BE6C',
+                    borderColor: '#35BE6C',
                     borderWidth: 1,
                     type: 'bar' // Specify bar type here
                 }, {
                     label: 'Emission',
                     data: emission_data,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)', // Example color
-                    borderColor: 'rgba(255, 99, 132, 1)', // Example color
+                    backgroundColor: '#B2FE03',
+                    borderColor: '#B2FE03',
                     borderWidth: 1,
                     type: 'line', // Specify line type here
                     fill: false
@@ -368,14 +368,14 @@ createCharts = async () => {
                     data: shipmentPercentages.map(mode => mode.percentage),
                     backgroundColor: [
                         // Colors for each bar
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)'
+                        '#B2FE03',
+                        '#35BE6C'
                         // Add more colors if you have more transport modes
                     ],
                     borderColor: [
                         // Border colors for each bar
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)'
+                        '#B2FE03',
+                        '#35BE6C'
                         // Add more border colors if needed
                     ],
                     borderWidth: 1
@@ -405,16 +405,16 @@ avgShipmentLine = new Chart(avgShipmentLinectx, {
         datasets: [{
             label: 'Avg Weight per Shipment (t)',
             data: avgWeightPerShipment_data,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: '#B2FE03',
+            borderColor: '#B2FE03',
             borderWidth: 2,
             fill: false,
             yAxisID: 'y-weight' // Associate this dataset with the first y-axis
         }, {
             label: 'Avg Distance per Shipment (km)',
             data: avgDistancePerShipment_data,
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: '#35BE6C',
+            borderColor: '#35BE6C',
             borderWidth: 2,
             fill: false,
             yAxisID: 'y-distance' // Associate this dataset with the second y-axis
