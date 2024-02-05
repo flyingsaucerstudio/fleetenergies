@@ -96,7 +96,7 @@ createCharts = async () => {
                     borderColor: [
                         'rgba(53, 190, 108, 1)',
                     ],
-                    borderWidth: 2
+                    borderWidth: 1
                 }]
             },
             options: {
@@ -134,7 +134,7 @@ createCharts = async () => {
                     borderColor: [
                         'rgba(53, 190, 108, 1)',
                     ],
-                    borderWidth: 2
+                    borderWidth: 1
                 }]
             },
             options: {
@@ -173,7 +173,7 @@ createCharts = async () => {
                 borderColor: [
                     'rgba(53, 190, 108, 1)',
                 ],
-                borderWidth: 2
+                borderWidth: 1
             }]
         },
         options: {
@@ -207,7 +207,7 @@ createCharts = async () => {
                 borderColor: [
                     'rgba(53, 190, 108, 1)',
                 ],
-                borderWidth: 2
+                borderWidth: 1
             }]
         },
         options: {
@@ -245,7 +245,7 @@ createCharts = async () => {
                 borderColor: [
                     'rgba(53, 190, 108, 1)',
                 ],
-                borderWidth: 2
+                borderWidth: 1
             }]
         },
         options: {
@@ -309,7 +309,7 @@ createCharts = async () => {
                 datasets: [{
                     label: 'Shipment',
                     data: shipment_data,
-                    backgroundColor: 'rgba(53, 190, 108, 1)',
+                    backgroundColor: 'rgba(53, 190, 108, 0.5)',
                     borderColor: 'rgba(53, 190, 108, 1)',
                     borderWidth: 1,
                     type: 'bar' // Specify bar type here
