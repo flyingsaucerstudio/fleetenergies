@@ -13,19 +13,6 @@ window.onload = async () => {
             console.error("Data is missing");
             return;
         }
-
-        // Your existing chart creation logic goes here
-        // For example:
-        // const month_label = monthData.map(data => `Month ${data.month}`);
-        // ... rest of your chart creation logic
-
-        // Add your chart creation logic for each chart here
-        // Example for one chart:
-        // Create emissionChartCo2
-        // ... rest of the code for creating emissionChartCo2
-
-        // Repeat the above pattern for each of the charts you need to create
-        // totalShipments, carbonIntensity, carbonIntensityMode, avgWeight, avgDistance, shipmentEmission, shipmentByMode, avgShipmentLine
     };
 
     // Fetch all necessary data
@@ -77,8 +64,9 @@ createCharts = async () => {
     console.log("createCharts" , monthDataLoaded, shipmentModeDataLoaded)
     const monthData = await Wized.data.get("v.emissionMonthData");        
         const shipmentModeData = await Wized.data.get("v.shipmentByMode");
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-        const month_label =  monthData.map(data => `Month ${data.month}`);
+        const month_label =  monthData.map(data => monthNames[data.month-1]);
 
 
         const emission_data = monthData.map(key=> key.totalEmissions_tCO2e)
@@ -108,7 +96,7 @@ createCharts = async () => {
                     borderColor: [
                         'rgba(53, 190, 108, 1)',
                     ],
-                    borderWidth: 2
+                    borderWidth: 1
                 }]
             },
             options: {
@@ -146,7 +134,7 @@ createCharts = async () => {
                     borderColor: [
                         'rgba(53, 190, 108, 1)',
                     ],
-                    borderWidth: 2
+                    borderWidth: 1
                 }]
             },
             options: {
@@ -185,7 +173,7 @@ createCharts = async () => {
                 borderColor: [
                     'rgba(53, 190, 108, 1)',
                 ],
-                borderWidth: 2
+                borderWidth: 1
             }]
         },
         options: {
@@ -219,7 +207,7 @@ createCharts = async () => {
                 borderColor: [
                     'rgba(53, 190, 108, 1)',
                 ],
-                borderWidth: 2
+                borderWidth: 1
             }]
         },
         options: {
@@ -257,7 +245,7 @@ createCharts = async () => {
                 borderColor: [
                     'rgba(53, 190, 108, 1)',
                 ],
-                borderWidth: 2
+                borderWidth: 1
             }]
         },
         options: {
@@ -321,7 +309,7 @@ createCharts = async () => {
                 datasets: [{
                     label: 'Shipment',
                     data: shipment_data,
-                    backgroundColor: 'rgba(53, 190, 108, 1)',
+                    backgroundColor: 'rgba(53, 190, 108, 0.5)',
                     borderColor: 'rgba(53, 190, 108, 1)',
                     borderWidth: 1,
                     type: 'bar' // Specify bar type here
@@ -331,6 +319,8 @@ createCharts = async () => {
                     backgroundColor: 'rgba(178, 254, 3, 1)',
                     borderColor: 'rgba(178, 254, 3, 1)',
                     borderWidth: 1,
+                    yAxisID: 'yEmission', // This should match the ID of the right y-axis
+        
                     type: 'line', // Specify line type here
                     fill: false
                 }]
@@ -338,11 +328,45 @@ createCharts = async () => {
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: false,
+                        position: 'left', // Default y-axis for Shipment
+                        title: {
+                            display: true,
+                            text: 'Shipment Quantity', // Replace with your desired title
+                            color: '#666', // Optional: color of the title
+                            font: {
+                                size: 8, // Optional: font size of the title
+                            },
+                        },
+                    },  
+                    yEmission: {
+                        beginAtZero: true,
+                        position: 'right',  
+                        // min: 0,       // Minimum value for right y-axis
+                        // max: 600,     // Maximum value for right y-axis
+                        grid: {
+                            drawOnChartArea: false, // Ensures grid lines are only drawn for the left y-axis
+                        },
+                        ticks: {
+                            // Remove min and max to let Chart.js automatically calculate the scale
+                            callback: function(value, index, values) {
+                                // This callback can be used to format tick labels if needed
+                                return value;
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Emission Value', // Replace with your desired title
+                            color: '#666', // Optional: color of the title
+                            font: {
+                                size: 8, // Optional: font size of the title
+                            },
+                        },
                     }
                 }
             }
         });
+
 
 
         // Destroy the existing chart if it exists
